@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> كشري ابو الهرش </title>
+    <title>كشري أبو الهرش</title>
     <style>
         * {
             margin: 0;
@@ -13,24 +13,72 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #F5F5DC, #FAEBD7, #FFF8DC, #F0F0F0);
+            background: linear-gradient(135deg, #FF6B35, #F7931E, #FF8C42, #FF7F50);
             min-height: 100vh;
-            color: #5D4E37;
+            color: #8B4513;
             direction: rtl;
         }
 
         header {
             text-align: center;
-            padding: 2rem 0;
-            background: linear-gradient(135deg, #8B7355, #A0826D, #B8966B);
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #D2691E, #FF6B35, #FF4500);
             color: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255,255,255,0.8);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        .chef-hat {
+            font-size: 4rem;
+            color: #FF6B35;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        @keyframes logoGlow {
+            0% {
+                box-shadow: 0 10px 40px rgba(255,255,255,0.3), 0 0 20px rgba(255,107,53,0.5);
+            }
+            100% {
+                box-shadow: 0 10px 40px rgba(255,255,255,0.5), 0 0 30px rgba(255,107,53,0.8);
+            }
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 0.5rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #FFFFFF, #ffffff, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShine 4s ease-in-out infinite;
+        }
+
+        @keyframes titleShine {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; transform: scale(1.02); }
         }
 
         .subtitle {
@@ -53,72 +101,114 @@
         }
 
         .dish-card {
-            background: linear-gradient(145deg, #FFFFFF, #F8F8FF, #F5F5F5);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,228,181,0.9), rgba(255,255,255,0.95));
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 12px 35px rgba(255,107,53,0.3);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #D2B48C;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(255,107,53,0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dish-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B35, #FF4500, #FF6B35);
+            animation: shimmer 2s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .dish-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255,107,53,0.4);
+            border-color: #FF6B35;
         }
 
         .dish-title {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 0.5rem;
-            color: #8B4513;
+            color: #FF4500;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
         }
 
         .dish-author {
-            font-size: 1rem;
-            color: #A0522D;
+            font-size: 1.1rem;
+            color: #D2691E;
             margin-bottom: 1rem;
             font-style: italic;
-            opacity: 0.8;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
 
         .price {
-            font-size: 2rem;
-            color: #A0522D;
+            font-size: 2.2rem;
+            color: #FF6B35;
             font-weight: bold;
             margin: 1rem 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            background: linear-gradient(45deg, #FF6B35, #FF4500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .add-btn {
-            background: linear-gradient(145deg, #8B7355, #A0826D);
+            background: linear-gradient(145deg, #FF6B35, #FF4500);
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             margin: 0.5rem;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.4);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .add-btn:hover::before {
+            left: 100%;
         }
 
         .add-btn:hover {
-            background: linear-gradient(145deg, #A0826D, #8B7355);
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(145deg, #FF4500, #FF6B35);
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255,107,53,0.6);
         }
 
         .quantity-display {
             margin: 1rem 0;
-            font-size: 1.2rem;
-            color: #8B4513;
+            font-size: 1.3rem;
+            color: #FF4500;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         /* سلة التسوق */
@@ -130,63 +220,76 @@
         }
 
         .cart-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(145deg, #8B7355, #A0826D);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(145deg, #FF6B35, #FF4500);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            animation: bounce 2s infinite;
-            border: 3px solid white;
+            box-shadow: 0 15px 40px rgba(255,107,53,0.5);
+            transition: all 0.4s ease;
+            animation: cartBounce 3s infinite;
+            border: 4px solid white;
         }
 
         .cart-icon:hover {
-            transform: scale(1.15);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            transform: scale(1.2);
+            box-shadow: 0 20px 50px rgba(255,107,53,0.7);
+        }
+
+        @keyframes cartBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-8px);
+            }
         }
 
         .cart-icon svg {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             fill: white;
-            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
         }
 
         .cart-count {
             position: absolute;
-            top: -10px;
-            right: -10px;
-            background: linear-gradient(145deg, #A0522D, #8B4513);
+            top: -12px;
+            right: -12px;
+            background: linear-gradient(145deg, #FF4500, #D2691E);
             color: white;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: bold;
-            border: 2px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 3px solid white;
+            box-shadow: 0 6px 20px rgba(255,107,53,0.5);
         }
 
         .cart-panel {
             position: absolute;
-            bottom: 90px;
+            bottom: 100px;
             left: 0;
-            width: 380px;
-            background: linear-gradient(145deg, #FFFFFF, #F8F8F8);
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            padding: 2rem;
+            width: 400px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(255,228,181,0.95));
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(255,107,53,0.4);
+            padding: 2.5rem;
             transform: translateX(-100%);
             opacity: 0;
-            transition: all 0.4s ease;
-            border: 3px solid #D2B48C;
+            transition: all 0.5s ease;
+            border: 3px solid rgba(255,107,53,0.3);
+            backdrop-filter: blur(15px);
         }
 
         .cart-panel.show {
@@ -197,12 +300,12 @@
         .cart-header {
             text-align: center;
             margin-bottom: 1.5rem;
-            color: #8B4513;
-            font-size: 1.4rem;
+            color: #FF4500;
+            font-size: 1.6rem;
             font-weight: bold;
-            border-bottom: 3px solid #D2B48C;
-            padding-bottom: 0.8rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            border-bottom: 3px solid rgba(255,107,53,0.5);
+            padding-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .cart-item {
@@ -210,61 +313,51 @@
             justify-content: space-between;
             align-items: center;
             margin: 1rem 0;
-            padding: 1rem;
-            background: linear-gradient(145deg, #F5F5F5, #FAFAFA);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 1.2rem;
+            background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,240,220,0.9));
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(255,107,53,0.2);
+            border: 1px solid rgba(255,107,53,0.2);
         }
 
         .cart-item-name {
-            color: #8B4513;
+            color: #FF4500;
             font-weight: bold;
             font-size: 1.1rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         .cart-item-details {
-            color: #A0522D;
+            color: #D2691E;
             font-weight: 500;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .cart-total {
-            border-top: 3px solid #D2B48C;
+            border-top: 3px solid rgba(255,107,53,0.5);
             padding-top: 1.5rem;
             margin-top: 1.5rem;
             text-align: center;
-            background: linear-gradient(145deg, #F9F9F9, #F0F0F0);
-            border-radius: 10px;
-            padding: 1.5rem;
+            background: linear-gradient(145deg, rgba(255,248,220,0.9), rgba(255,240,205,0.9));
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 6px 20px rgba(255,107,53,0.2);
         }
 
         .total-amount {
-            font-size: 1.6rem;
-            color: #A0522D;
+            font-size: 1.8rem;
+            color: #FF4500;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .empty-cart {
             text-align: center;
-            color: #8B4513;
+            color: #D2691E;
             font-style: italic;
-            font-size: 1.1rem;
-            padding: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
+            font-size: 1.2rem;
+            padding: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 768px) {
@@ -278,32 +371,44 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .chef-hat {
+                font-size: 3rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1> كشري ابو الهرش </h1>
-        <p class="subtitle">أطباق شهية بنكهة ام الدنيا مصر  </p>
+    
+            </div>
+        </div>
+        <h1>كشري أبو الهرش</h1>
+        <p class="subtitle">أطباق شهية بنكهة أم الدنيا مصر </p>
     </header>
 
     <div class="container">
         <div class="menu-grid">
             <div class="dish-card">
-                <div class="dish-title">  الطبق الرئيسي كشري </div>
-                <div class="dish-author">إعداد سعود الدليلة </div>
+                <div class="dish-title">الطبق الرئيسي كشري</div>
+                <div class="dish-author">إعداد سعود الدليلة</div>
                 <div class="price">1 ريال</div>
                 <div class="quantity-display" id="qty1">الكمية: 0</div>
-                <button class="add-btn" onclick="addToCart(' الطبق الرئيسي كشري ', 1, 'qty1')">
+                <button class="add-btn" onclick="addToCart('الطبق الرئيسي كشري', 1, 'qty1')">
                     إضافة للسلة
                 </button>
             </div>
 
             <div class="dish-card">
-                <div class="dish-title"> التحلية  كنافة </div>
-                <div class="dish-author">إعداد  فهد الفريان </div>
+                <div class="dish-title">التحلية كنافة</div>
+                <div class="dish-author">إعداد فهد الفريان</div>
                 <div class="price">2 ريال</div>
                 <div class="quantity-display" id="qty2">الكمية: 0</div>
                 <button class="add-btn" onclick="addToCart('التحلية كنافة', 2, 'qty2')">
@@ -312,18 +417,18 @@
             </div>
 
             <div class="dish-card">
-                <div class="dish-title"> التحلية سلطة فواكه </div>
-                <div class="dish-author">إعداد  ياسر الودعاني </div>
+                <div class="dish-title">التحلية سلطة فواكه</div>
+                <div class="dish-author">إعداد ياسر الودعاني</div>
                 <div class="price">3 ريال</div>
                 <div class="quantity-display" id="qty3">الكمية: 0</div>
-                <button class="add-btn" onclick="addToCart('التحلية سلطة فواكه' , 3, 'qty3')">
+                <button class="add-btn" onclick="addToCart('التحلية سلطة فواكه', 3, 'qty3')">
                     إضافة للسلة
                 </button>
             </div>
 
             <div class="dish-card">
-                <div class="dish-title"> الشوربة  ملوخية </div>
-                <div class="dish-author">إعداد سعود الدليلة  </div>
+                <div class="dish-title">الشوربة ملوخية</div>
+                <div class="dish-author">إعداد سعود الدليلة</div>
                 <div class="price">4 ريال</div>
                 <div class="quantity-display" id="qty4">الكمية: 0</div>
                 <button class="add-btn" onclick="addToCart('الشوربة ملوخية', 4, 'qty4')">
@@ -332,8 +437,8 @@
             </div>
 
             <div class="dish-card">
-                <div class="dish-title"> مشروب باااااااارد </div>
-                <div class="dish-author">إعداد عزام الفالح  </div>
+                <div class="dish-title">مشروب باااااااارد</div>
+                <div class="dish-author">إعداد عزام الفالح</div>
                 <div class="price">5 ريال</div>
                 <div class="quantity-display" id="qty5">الكمية: 0</div>
                 <button class="add-btn" onclick="addToCart('مشروب باااااااارد', 5, 'qty5')">
@@ -353,7 +458,7 @@
         </div>
 
         <div class="cart-panel" id="cartPanel">
-            <div class="cart-header">🛒 سلة التسوق</div>
+            <div class="cart-header"> سلة التسوق</div>
             <div id="cartItems">
                 <div class="empty-cart">السلة فارغة</div>
             </div>
@@ -366,26 +471,27 @@
     <script>
         let cart = {};
         let quantities = {
-            ' الطبق الرئيسي كشري ': 0,
+            'الطبق الرئيسي كشري': 0,
             'التحلية كنافة': 0,
             'التحلية سلطة فواكه': 0,
             'الشوربة ملوخية': 0,
             'مشروب باااااااارد': 0
         };
 
-       function addToCart(itemName, price, qtyId) {
-    if (!cart[itemName]) {
-        cart[itemName] = { price: price, quantity: 0 };
-    }
-    cart[itemName].quantity++;
-    quantities[itemName]++;
+        function addToCart(itemName, price, qtyId) {
+            if (!cart[itemName]) {
+                cart[itemName] = { price: price, quantity: 0 };
+            }
+            cart[itemName].quantity++;
+            quantities[itemName]++;
 
-    // تحديث عرض الكمية
-    document.getElementById(qtyId).textContent = `الكمية: ${quantities[itemName]}`;
+            // تحديث عرض الكمية
+          document.getElementById(qtyId).textContent = `الكمية: ${quantities[itemName]}`;
 
 
-    updateCartDisplay();
-}
+
+            updateCartDisplay();
+        }
 
         function updateCartDisplay() {
             const cartCount = document.getElementById('cartCount');
