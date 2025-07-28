@@ -1,1 +1,249 @@
-
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جريمة لم تحل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #666;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .story {
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 5px solid #888;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .story p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .footer {
+            background-color: #e0e0e0;
+            padding: 40px;
+            text-align: center;
+            margin-top: auto;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .code-input {
+            margin: 20px 0;
+        }
+        
+        .code-input label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .code-input input {
+            width: 300px;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            direction: ltr;
+        }
+        
+        .code-input button {
+            margin-right: 10px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background-color: #666;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .code-input button:hover {
+            background-color: #555;
+        }
+        
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+        
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ef5350;
+        }
+        
+        .success {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+            border: 1px solid #4caf50;
+        }
+        
+        .cipher-info {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .cipher-info h3 {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .cipher-table {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        
+        .cipher-item {
+            background-color: white;
+            padding: 8px;
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>جريمة لم تحل</h1>
+        </div>
+                            
+        <div class="story">
+            <p>مرحبا يا ايها المحققون انا المحقق الذي سبقكم </p>
+            <p>تقرير الطب الشرعي مات مقتول بي سبعه طعنات من الخلف  مابين الساعه 10 صباحا الى الساعه 12 ظهرا</p>
+            <p>ولم اعثر علي اي شي في موقع الجريمه لابصمات ولاشيء ما عدا دفتر بلون الاسواد مكتوب فيه</p>
+            <p>مذكرات في الصفحه الاوله وفي الصفحه الثانيه انا احب الصحراء وفي الصفحه الثالثه فيه ارقام غريبه </p>
+            <p>من الواضح انها شفره ولاكن ليس لدينا الرمز ابحثو عن الرمز وانا سافك الرمز وسنصل الى الشيفرا </p>
+            <p>مهامتكم البحث عن الرمز  </p>
+            <p>المقتول هو  لديه عداوات او مشادات كلاميه معا بعض افراد الاسره قد يكون واحد من افراد الاسره </p>
+            <p>انتبه من جميع من في الغرفه قديكون القاتل في نفس الغرف بعد الدخلول لا تدعو احد يخرج الى حين انتهاء القضيه</p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="code-input">
+            <label for="codeInput">أدخل الرمز:</label>
+            <input type="text" id="codeInput" placeholder="أدخل الرمز هنا...">
+            <button onclick="checkCode()">فحص الرمز</button>
+        </div>
+        <div id="message"></div>
+        
+        <div id="cipherInfo" class="cipher-info hidden">
+            <h3>نوع المفتاح لفك الشيفرا:</h3>
+            <p>علامة (+) الفاصل بين كل حرف</p>
+            <p>علامة (-) الفاصل بين كل كلمة</p>
+            
+            <div class="cipher-table">
+                <div class="cipher-item">1 = أ</div>
+                <div class="cipher-item">2 = ب</div>
+                <div class="cipher-item">3 = ت</div>
+                <div class="cipher-item">4 = ث</div>
+                <div class="cipher-item">5 = ج</div>
+                <div class="cipher-item">6 = ح</div>
+                <div class="cipher-item">7 = خ</div>
+                <div class="cipher-item">8 = د</div>
+                <div class="cipher-item">9 = ذ</div>
+                <div class="cipher-item">10 = ر</div>
+                <div class="cipher-item">11 = ز</div>
+                <div class="cipher-item">12 = س</div>
+                <div class="cipher-item">13 = ش</div>
+                <div class="cipher-item">14 = ص</div>
+                <div class="cipher-item">15 = ض</div>
+                <div class="cipher-item">16 = ط</div>
+                <div class="cipher-item">17 = ظ</div>
+                <div class="cipher-item">18 = ع</div>
+                <div class="cipher-item">19 = غ</div>
+                <div class="cipher-item">20 = ف</div>
+                <div class="cipher-item">21 = ق</div>
+                <div class="cipher-item">22 = ك</div>
+                <div class="cipher-item">23 = ل</div>
+                <div class="cipher-item">24 = م</div>
+                <div class="cipher-item">25 = ن</div>
+                <div class="cipher-item">26 = هـ</div>
+                <div class="cipher-item">27 = و</div>
+                <div class="cipher-item">28 = ي</div>
+            </div>
+        </div>
+    </div>
+j
+    <script>
+        function checkCode() {
+            const input = document.getElementById('codeInput');
+            const message = document.getElementById('message');
+            const cipherInfo = document.getElementById('cipherInfo');
+            const code = input.value.trim();
+            
+            if (code === 'PQQ81JSRV') {
+                message.innerHTML = '<div class="success">تم قبول الرمز! مرحباً بك أيها المحقق</div>';
+                cipherInfo.classList.remove('hidden');
+            } else {
+                message.innerHTML = '<div class="error">مين خلاك محقق هااا</div>';
+                cipherInfo.classList.add('hidden');
+            }
+        }
+        
+        // إضافة إمكانية الضغط على Enter
+        document.getElementById('codeInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkCode();
+            }
+        });
+    </script>
+</body>
+</html>
